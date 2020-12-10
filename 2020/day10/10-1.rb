@@ -3,18 +3,17 @@ input = File.readlines("input.txt").map{ |line|
 }.sort
 
 prev = 0
-h = {
+h    = {
   1 => 0,
-  2 => 0,
   3 => 0
 }
 
 input.each do |num|
-  h[num-prev] += 1
+  h[num - prev] += 1
   prev = num
 end
 
-puts h[1]*(h[3]+1)
+puts h[1] * (h[3] + 1)
 
 
 
