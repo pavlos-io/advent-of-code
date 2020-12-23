@@ -11,14 +11,14 @@ my_deck    = deque( list(map(int, my_deck)) )
 other_deck = deque( list(map(int, other_deck)) )
 
 def start_game(deck1, deck2):
-  history = []
+  history = set()
 
   while len(deck1) and len(deck2):
-    for d1, d2 in history:
-      if deck1 == d1 and deck2 == d2:
-        return 1
+    state = (tuple(deck1), tuple(deck2))
+    if state in history:
+      return 1
 
-    history.append( (deck1.copy(), deck2.copy()) )
+    history.add(state)
     hand1, hand2 = deck1.popleft(), deck2.popleft()
     
     if len(deck1) >= hand1 and len(deck2) >= hand2:
