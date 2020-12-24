@@ -2,14 +2,13 @@ from ring import Ring
 
 inp = [int(l.strip()) for l in open('input.txt').read()]
 
-for i in range(max(inp)+1, 1000001):
-  inp.append(i)
+inp.extend(range(max(inp)+1, 10**6 + 1))
 
 r       = Ring(inp)
 curr    = r.find(inp[0])
 inp_min = min(inp)
 
-for i in range(10000000):
+for i in range(10**7):
   tmp  = r.remove(curr.nxt.val, 2)
 
   destination_val = curr.val - 1
