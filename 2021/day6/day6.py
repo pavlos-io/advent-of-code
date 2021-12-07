@@ -6,8 +6,6 @@ with open('input.txt', 'r') as f:
 CYCLE = 7
 
 def main(days):
-    fish_count = len(nums)
-
     fish_count_in_days_left = {k: 0 for k in range(9)}
     for n in nums:
         fish_count_in_days_left[n] += 1
@@ -22,7 +20,6 @@ def main(days):
             new_state[new_day] += count
             if days_left == 0:
                 new_state[8] = count
-                fish_count += count
         
         for k, v in new_state.items():
             fish_count_in_days_left[k] = v
