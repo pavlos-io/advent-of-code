@@ -5,24 +5,6 @@ with open('input.txt', 'r') as f:
     insertions = dict([el.split(' -> ') for el in insertions.split('\n')])
 
 
-def recorver_letter_freq(pairs):
-    freq = defaultdict(int)
-    prev = None
-    for (a, b), count in pairs.items():
-        if a != prev:
-            freq[a] += count
-        if a != b:
-            freq[b] += count
-        prev = b
-
-    # d = {}
-    # for k, v in freq.items():
-    #     if k != last:
-    #         d[k] = v//2
-    #     else:
-    #         d[k] = v//2 - 1
-    return freq
-
 def main(steps):
     pairs = defaultdict(int)
     freq  = Counter(tmpl)
@@ -30,7 +12,7 @@ def main(steps):
     for i in range(1, len(tmpl)):
         pairs[(tmpl[i-1], tmpl[i])] += 1
 
-    for i in range(steps):
+    for _ in range(steps):
         d = defaultdict(int)
         for (a, b), count in pairs.items():
             c = insertions[a + b]
