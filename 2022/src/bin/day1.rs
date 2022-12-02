@@ -3,12 +3,10 @@ mod aoc_utils;
 
 fn main() {
     // Part 1
-    let mut elf_cals: Vec<i32> = aoc_utils::get_input_chunks(1)
+    let mut elf_cals: Vec<i32> = aoc_utils::get_input_2d_ivec(1)
         .iter()
-        .map(|elf| elf.split("\n")
-            .map(|cal| cal.parse::<i32>().unwrap())
-            .sum()
-        ).collect();
+        .map(|elf| elf.iter().sum())
+        .collect();
     
     println!("Part1: {:?}", elf_cals.iter().max().unwrap());
 
