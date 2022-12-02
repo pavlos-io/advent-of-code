@@ -24,8 +24,8 @@ pub fn get_input_str(day: u8) -> String {
 pub fn get_input_2d_ivec(day: u8) -> Vec<Vec<i32>> {
     get_input_str(day)
         .split("\n\n")
-        .map(|s| 
-            s.split("\n")
+        .map(|chunk| 
+            chunk.split("\n")
             .map(|s| s.parse::<i32>().unwrap())
             .collect()
         )
