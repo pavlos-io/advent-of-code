@@ -13,9 +13,9 @@ pub fn get_input_str(day: u8) -> String {
     input_str
 }
 
-// pub fn get_input_lines(day: u8) -> Vec<String> {
-//     get_input_str(day).split("\n").map(str::to_string).collect()
-// }
+pub fn get_input_lines(day: u8) -> Vec<String> {
+    get_input_str(day).split("\n").map(str::to_string).collect()
+}
 
 // pub fn get_input_chunks(day: u8) -> Vec<String> {
 //     get_input_str(day).split("\n\n").map(str::to_string).collect()
